@@ -1,0 +1,98 @@
+/* Custom CSS from scratch (requirements: font family, font color, 4+ styles) */
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #1f2937;
+
+  background-image: url("images/Forres.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.header {
+  background: #0b1220;
+  color: #ffffff;
+  padding: 28px 0;
+}
+
+.subtitle {
+  margin-top: 6px;
+  color: #cbd5e1;
+}
+
+.nav {
+  margin-top: 14px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  color: #93c5fd;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+}
+
+.content {
+  padding: 24px 0 40px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 16px;
+  border: 1px solid #e5e7eb;
+}
+
+.feature-img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-top: 10px;
+}
+
+.video-wrap iframe {
+  width: 100%;
+  height: 360px;
+  border-radius: 12px;
+}
+
+.tableau-wrap iframe {
+  border-radius: 12px;
+}
+
+.btn-link {
+  display: inline-block;
+  padding: 10px 14px;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: bold;
+}
+
+.btn-link:hover {
+  background: #1d4ed8;
+}
+
+.footer {
+  padding: 18px 0;
+  text-align: center;
+  color: #6b7280;
+}

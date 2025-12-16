@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Car Web App</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 24px; background: #0b1220; color: #e5e7eb; }
+    .card { max-width: 700px; margin: 0 auto; background: #020617; border: 1px solid #1f2937; border-radius: 16px; padding: 18px; }
+    button { border: 0; border-radius: 999px; padding: 10px 14px; font-weight: 700; cursor: pointer; }
+    .primary { background: #4f46e5; color: white; }
+    .secondary { background: transparent; color: #e5e7eb; border: 1px solid #475569; }
+    .row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    a { color: #93c5fd; text-decoration: none; font-weight: 700; }
+    a:hover { text-decoration: underline; }
+    .muted { color: #9ca3af; }
+    .big { font-size: 1.6rem; margin: 12px 0 0; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1 style="margin:0;">Car Build Generator</h1>
+    <p class="muted" style="margin:6px 0 0;">Click generate to get a random build. Save favorites.</p>
+
+    <div class="big" id="build">Click Generate 🚗</div>
+    <div class="muted" id="stats" style="margin-top:6px;"></div>
+
+    <div class="row">
+      <button class="primary" id="gen">Generate</button>
+      <button class="secondary" id="save">Save Favorite</button>
+      <button class="secondary" id="clear">Clear Favorites</button>
+    </div>
+
+    <h3 style="margin:18px 0 8px;">Favorites</h3>
+    <div id="favs" class="muted">None yet.</div>
+
+    <div class="row" style="margin-top:18px;">
+      <a href="scratch.html">← Back to Scratch Page</a>
+      <span class="muted">·</span>
+      <a href="index.html">Professional Site</a>
+    </div>
+  </div>
+
+  <script>
+    const cars = [
+      { name: "Porsche 911 GT2 RS", hp: 700, drive: "RWD" },
+      { name: "Nissan GT-R", hp: 565, drive: "AWD" },
+      { name: "Lamborghini Huracán STO", hp: 631, drive: "RWD" },
+      { name: "McLaren 765LT", hp: 755, drive: "RWD" },
+      { name: "Ferrari SF90", hp: 986, drive: "AWD" },
+      { name: "BMW M4 CSL", hp: 543, drive: "RWD" }
+    ];
+
+    const buildEl = document.getElementById("build");
+    const statsEl = document.getElementById("stats");
+    const favsEl = document.getElementById("favs");
+
+    let current = null;
+
+    function loadFavs() {
+      try { return JSON.parse(localStorage.getItem("carFavs") || "[]"); }
+      catch { return []; }
+    }
+    function saveFavs(favs) {
+      localStorage.setItem("carFavs", JSON.stringify(favs));
+    }
+    function renderFavs() {
+      const favs = loadFavs();
+      if (favs.length === 0) { favsEl.textContent = "None yet."; return; }
+      favsEl.innerHTML = favs.map(x => `• ${x}`).join("<br>");
+    }
+
+    function generate() {
+      const pick = cars[Math.floor(Math.random() * cars.length)];
+      const weight = Math.floor(2800 + Math.random() * 1400);
+      current = `${pick.name} — ${pick.hp} hp, ${pick.drive}, ~${weight} lbs`;
+      buildEl.textContent = pick.name;
+      statsEl.textContent = `${pick.hp} hp · ${pick.drive} · approx ${weight} lbs`;
+    }
+
+    document.getElementById("gen").addEventListener("click", () => {
+      generate();
+    });
+
+    document.getElementById("save").addEventListener("click", () => {
+      if (!current) return;
+      const favs = loadFavs();
+      favs.unshift(current);
+      saveFavs(favs.slice(0, 10));
+      renderFavs();
+    });
+
+    document.getElementById("clear").addEventListener("click", () => {
+      saveFavs([]);
+      renderFavs();
+    });
+
+    renderFavs();
+  </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Scratch Page – Cars</title>
+
+  <!-- Custom CSS (from scratch) -->
+  <link rel="stylesheet" href="scratch.css">
+</head>
+<body>
+
+  <!-- DIV #1: Header -->
+  <div class="header">
+    <div class="container">
+      <h1>Cars</h1>
+      <p class="subtitle">A scratch page about why I love cars.</p>
+
+      <div class="nav">
+        <a href="index.html">Back to Professional Site</a>
+        <a href="app.html">My Web App</a>
+        <a href="#video">Jump to YouTube</a>
+        <a href="#tableau">Jump to Tableau</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIV #2: Main Content -->
+  <div class="container content">
+
+    <!-- DIV #3: Image Section -->
+    <div class="card">
+      <h2>Featured Car</h2>
+      <p>This is one of my favorite cars: the Porsche GT2RS.</p>
+
+      <!-- Required: at least one image not from Bootstrap theme -->
+      <img class="feature-img" src="images/GT2RS.jpg" alt="Photo of a Porsche GT2RS" />
+    </div>
+
+    <!-- Lists Requirement: Ordered list with unordered list inside -->
+    <div class="card">
+      <h2>Reasons I Like Cars</h2>
+
+      <ol>
+        <li>
+          They are cool to look at.
+          <ul>
+            <li>Design, body lines, and details make every model unique.</li>
+            <li>I like noticing the differences between trims and builds.</li>
+          </ul>
+        </li>
+        <li>
+          They sound awesome.
+          <ul>
+            <li>Engine tone can completely change the personality of a car.</li>
+            <li>Exhaust notes are honestly one of the best parts.</li>
+          </ul>
+        </li>
+        <li>
+          Cars help me relax and find joy when I am down.
+          <ul>
+            <li>Driving clears my head and helps me reset.</li>
+            <li>Learning about cars gives me something fun to focus on.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <!-- On-page anchor target -->
+    <div class="card" id="video">
+      <h2>YouTube Video</h2>
+      <p>
+        Here is a YouTube video review of the Porsche GT2RS, one of my favorite
+        cars.
+      </p>
+
+      <div class="video-wrap">
+        <!-- TODO: Replace VIDEO_ID with your YouTube video's ID -->
+      <iframe
+  src="https://www.youtube.com/embed/dj5HeAuQEp4"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
+      </div>
+    </div>
+
+    <div class="card" id="tableau">
+      <h2>Interactive Tableau Visualization</h2>
+      <p>
+        Paste your Tableau Public embed link into the iframe <code>src</code>.
+        (It must be interactive, not a screenshot.)
+      </p>
+
+      <div class="tableau-wrap">
+        <!-- TODO: Replace TABLEAU_EMBED_URL with your Tableau embed URL -->
+    <iframe
+  src="https://public.tableau.com/views/ExploringTrendsintheAutomotiveIndustry_17367554838370/Dashboard1?:showVizHome=no"
+  width="100%"
+  height="520"
+  frameborder="0"
+  title="Tableau Visualization">
+</iframe>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Quick Links</h2>
+      <p><a class="btn-link" href="index.html">Back to Professional Pages</a></p>
+      <p><a class="btn-link" href="app.html">Open My Web App</a></p>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Tyler Griffin</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
